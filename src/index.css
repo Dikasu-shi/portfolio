@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-heading: 'Outfit', 'Inter', system-ui, sans-serif;
+
+  /* Custom Theme Colors */
+  --color-bg-dark: #0B1120;
+  --color-surface-dark: #111827;
+  --color-primary-blue: #3B82F6;
+  --color-accent-cyan: #06B6D4;
+  --color-text-light: #F8FAFC;
+  --color-text-slate: #94A3B8;
+  --color-border-slate: rgba(255, 255, 255, 0.08);
+
+  /* Animation Overrides & Additions */
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-spin-reverse: spin-reverse 25s linear infinite;
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Custom Utilities and Resets */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0B1120; /* fallback bg-dark */
+  color: #F8FAFC; /* fallback text-light */
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hide default cursor on desktop devices to allow custom cursor */
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
+  }
+  a, button, input, textarea, select, [role="button"] {
+    cursor: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B1120;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Glassmorphism custom classes */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-navbar {
+  background: rgba(11, 17, 32, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #F8FAFC 30%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated Border Glow */
+.animated-glow-border {
+  position: relative;
+  border-radius: 0.75rem;
+}
+
+.animated-glow-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(90deg, #3B82F6, #06B6D4, #3B82F6);
+  background-size: 200% auto;
+  border-radius: 0.75rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: borderGlow 3s linear infinite;
+}
+
+.animated-glow-border:hover::after {
+  opacity: 1;
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
