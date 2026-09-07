@@ -7,7 +7,6 @@ const navLinks = [
   { label: 'About', id: 'about' },
   { label: 'Skills', id: 'skills' },
   { label: 'Projects', id: 'projects' },
-  { label: 'Certificates', id: 'certificates' },
   { label: 'Contact', id: 'contact' },
 ];
 
@@ -33,7 +32,7 @@ export default function Navbar() {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-40% 0px -50% 0px', // trigger when section occupies middle screen
+      rootMargin: '-40% 0px -50% 0px',
       threshold: 0,
     };
 
@@ -64,7 +63,7 @@ export default function Navbar() {
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // height of sticky header
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -92,7 +91,8 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <button
             onClick={() => handleLinkClick('home')}
-            className="text-xl font-heading font-black tracking-tight text-white group cursor-none"
+            className="text-xl font-heading font-black tracking-tight text-white group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded-lg px-1"
+            aria-label="Back to top"
           >
             <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent group-hover:text-white transition-colors">
               Dika Ahmad
@@ -100,12 +100,12 @@ export default function Navbar() {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center space-x-1" aria-label="Main Navigation">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => handleLinkClick(link.id)}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full ${
+                className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue ${
                   activeSection === link.id ? 'text-white' : 'text-text-slate hover:text-white'
                 }`}
               >
@@ -121,11 +121,12 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Mobile Hamburguer Button */}
+          {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-text-slate hover:text-white hover:bg-white/5 transition-colors"
-            aria-label="Toggle navigation menu"
+            className="md:hidden p-2 rounded-lg text-text-slate hover:text-white hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
           </button>
@@ -142,12 +143,12 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 top-[73px] z-30 md:hidden glass-panel flex flex-col items-center justify-start py-12 px-6"
           >
-            <nav className="flex flex-col space-y-6 text-center w-full max-w-sm">
+            <nav className="flex flex-col space-y-6 text-center w-full max-w-sm" aria-label="Mobile Navigation">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => handleLinkClick(link.id)}
-                  className={`w-full py-4 text-lg font-heading font-medium border-b border-white/[0.04] transition-colors ${
+                  className={`w-full py-4 text-lg font-heading font-medium border-b border-white/[0.04] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded-lg ${
                     activeSection === link.id 
                       ? 'text-primary-blue font-semibold' 
                       : 'text-text-slate hover:text-white'

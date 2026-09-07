@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import GlowBackground from './components/UI/GlowBackground';
@@ -13,7 +12,7 @@ import GlowBackground from './components/UI/GlowBackground';
 function App() {
   return (
     <div className="relative min-h-screen bg-bg-dark text-text-light selection:bg-primary-blue/30 selection:text-white antialiased font-sans">
-      {/* Premium cursor effect */}
+      {/* Interactive cursor effect */}
       <CustomCursor />
       
       {/* Scroll indicator */}
@@ -31,7 +30,6 @@ function App() {
         <About />
         <Skills />
         <Projects />
-        <Certificates />
         <Contact />
       </main>
       

@@ -14,15 +14,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
         {/* Copyright */}
         <p className="text-xs sm:text-sm text-text-slate font-light text-center sm:text-left">
-          &copy; {new Date().getFullYear()} Dika Ahmad Imamul Mutakin. All rights reserved.
+          &copy; {new Date().getFullYear()} Dika Ahmad Imamul Mutakin. Crafted with React & Tailwind CSS.
         </p>
 
-        {/* Back to Top */}
+        {/* Back to Top Button */}
         <motion.button
           onClick={handleScrollToTop}
           whileHover={{ y: -4 }}
           whileTap={{ scale: 0.95 }}
-          className="w-10 h-10 rounded-full bg-white/5 border border-white/5 hover:border-white/10 flex items-center justify-center text-text-slate hover:text-white hover:bg-white/10 transition-colors shadow-md cursor-none"
+          className="w-10 h-10 rounded-full bg-white/5 border border-white/5 hover:border-white/10 flex items-center justify-center text-text-slate hover:text-white hover:bg-white/10 transition-colors shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue cursor-pointer"
           aria-label="Scroll back to top of the page"
         >
           <HiArrowUp size={18} />

@@ -1,39 +1,32 @@
-// Personalized Portfolio data for Dika Ahmad Imamul Mutakin
+// Portfolio data for Dika Ahmad Imamul Mutakin - Frontend Developer
 
 export const heroData = {
   name: "Dika Ahmad Imamul Mutakin",
   title: "Frontend Developer",
-  subtitle: "Building clean, responsive, and user-friendly web interfaces. Passionate about turning Figma designs into functional, high-performance code.",
+  subtitle: "Undergraduate student passionate about building clean, responsive, and user-friendly web interfaces. Focused on turning Figma designs into functional, accessible frontend code.",
   socials: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    instagram: "https://instagram.com",
-    email: "dika.ahmad@example.com"
+    github: "https://github.com/Dikasu-shi",
+    linkedin: "https://www.linkedin.com/in/dika-ahmad-imamul-mutakin-646319421/",
+    instagram: "https://www.instagram.com/dikkkaaasu/",
+    email: "dikaim104@gmail.com"
   }
 };
 
 export const aboutData = {
-  introduction: "I am a Frontend Developer passionate about building clean, responsive, and user-friendly web interfaces. I hold a strong interest in UI/UX design using Figma and love the process of transforming high-fidelity design layouts into functional, interactive websites. By merging aesthetic details with coding principles, I strive to create high-performance applications.",
-  learningJourney: "Currently focusing on deepening my expertise in React, Tailwind CSS, JavaScript (ES6+), and modern frontend development techniques, including performance tuning and responsive design architecture.",
-  careerGoals: "My immediate goal is to secure a Frontend Developer internship where I can apply my skills, contribute to real-world products, and learn from experienced engineers while pushing my boundaries in web development.",
-  timeline: [
+  introduction: "I am an aspiring Frontend Developer with a strong interest in UI/UX implementation and modern web design. I enjoy crafting clean, intuitive, and responsive interfaces that prioritize user experience. My passion lies in bridging the gap between design prototypes in Figma and functional, high-performance web components in React.",
+  learningJourney: "Currently deepening my understanding of React, Tailwind CSS, JavaScript (ES6+), component-driven architecture, and responsive web optimization through hands-on practice and personal projects.",
+  coreValues: [
     {
-      year: "2025 - Present",
-      title: "Interactive Web Development & Projects",
-      institution: "Self-Directed Learning & Academy",
-      description: "Building responsive React applications, implementing interactive seat-selection checkouts, dynamic inventory catalogs, and refining design translation workflows."
+      title: "Clean & Component-Driven",
+      description: "Writing structured, reusable components with maintainable CSS and clear state logic."
     },
     {
-      year: "2024 - 2025",
-      title: "Frontend Development Bootcamp",
-      institution: "Tech Innovation Institute",
-      description: "Intensive program covering modern JavaScript framework structures, CSS grids/flexbox, state management, and component architecture."
+      title: "Responsive & Adaptive",
+      description: "Ensuring smooth and consistent user experiences across mobile, tablet, and desktop screens."
     },
     {
-      year: "2023 - 2024",
-      title: "UI/UX Design Course",
-      institution: "Creative Arts Academy",
-      description: "Focused on user personas, wireframing, high-fidelity interactive prototyping, design systems, and Figma typography."
+      title: "Design Fidelity",
+      description: "Respecting spacing, typography hierarchy, and UI details designed in Figma."
     }
   ]
 };
@@ -59,58 +52,36 @@ export const skillsData = {
 export const projectsData = [
   {
     id: "project-motostock",
-    title: "MotoStock Spare Parts Platform",
-    description: "A fully responsive motorcycle spare parts e-commerce website designed to provide an intuitive catalog browsing experience. It features categories filtering, instantaneous product search, and reactive shopping cart states.",
-    technologies: ["React", "Tailwind CSS", "JavaScript", "Context API"],
+    title: "MotoStock",
+    tagline: "Spare Parts Catalog & Inventory Interface",
+    description: "A responsive motorcycle spare parts web interface designed for an intuitive catalog browsing experience. Features category filtering, dynamic product search, and reactive shopping cart states.",
+    technologies: ["JavaScript", "Tailwind CSS", "HTML5", "Responsive UI"],
     features: [
-      "Interactive Product Catalog with instant grid sorting",
-      "Dynamic Search Bar filtering through stock items",
-      "Real-time reactive Shopping Cart management",
-      "Fully responsive mobile-to-desktop grid systems"
+      "Interactive Product Catalog with instant category filtering",
+      "Dynamic Search Bar for quick item lookup",
+      "Reactive shopping cart state updates",
+      "Mobile-friendly touch targets and flexible grid layout"
     ],
     imagePath: "/assets/project-motostock.png",
-    demoUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    responsiveness: "Mobile, Tablet, Desktop Optimized"
+    githubUrl: "https://github.com/Dikasu-shi",
+    demoUrl: "",
+    responsiveness: "Mobile, Tablet & Desktop Optimized"
   },
   {
     id: "project-tickets",
-    title: "Concert Ticket Booking Platform",
-    description: "A modern, highly engaging event booking experience featuring interactive layouts. Users can choose live listings, drill into seat mappings, proceed through checkout states, and review history.",
-    technologies: ["React", "Tailwind CSS", "Framer Motion", "React Icons"],
+    title: "TiketKonser",
+    tagline: "Concert Ticket Booking Interface",
+    description: "A modern concert ticket booking web interface featuring event listings, event detail overviews, interactive seat selection grid UI, and structured checkout flow.",
+    technologies: ["React", "Tailwind CSS", "Vite", "Framer Motion"],
     features: [
-      "Interactive SVG Seat Selection grid map",
-      "Dynamic Checkout UI with secure form checks",
-      "Fluid state updates and booking confirmation receipts",
-      "Smooth layout slide animations on event click"
+      "Interactive SVG-based seat selection grid",
+      "Structured checkout UI with clear step progression",
+      "Dynamic state management for ticket selections",
+      "Smooth layout transitions and responsive viewports"
     ],
     imagePath: "/assets/project-tickets.png",
-    demoUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    responsiveness: "Fluid Adaptive layout, Mobile-first touch targets"
-  }
-];
-
-export const certificatesData = [
-  {
-    id: "cert-1",
-    title: "Advanced React & Component Design",
-    issuer: "Tech Innovation Institute",
-    date: "Dec 2025",
-    imagePath: ""
-  },
-  {
-    id: "cert-2",
-    title: "UI/UX Design Masterclass",
-    issuer: "Creative Arts Academy",
-    date: "Aug 2025",
-    imagePath: ""
-  },
-  {
-    id: "cert-3",
-    title: "Responsive Web Design & Web Accessibility",
-    issuer: "W3 Consortium Training",
-    date: "Mar 2025",
-    imagePath: ""
+    githubUrl: "https://github.com/Dikasu-shi",
+    demoUrl: "",
+    responsiveness: "Fluid Adaptive Layout"
   }
 ];

@@ -3,7 +3,6 @@ import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 import { heroData } from '../data/portfolioData';
 
-// Stagger child animation container helper
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -41,6 +40,22 @@ export default function Hero() {
     }
   };
 
+  const handleScrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <section 
       id="home" 
@@ -48,13 +63,11 @@ export default function Hero() {
     >
       {/* Floating Slow Motion Geometric Shapes */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        {/* Shape 1: Dashed Circle */}
         <motion.div
           className="absolute top-[20%] left-[10%] w-32 h-32 rounded-full border border-white/5 border-dashed"
           animate={{ rotate: 360 }}
           transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
         />
-        {/* Shape 2: Neon Square */}
         <motion.div
           className="absolute bottom-[25%] left-[15%] w-16 h-16 border border-accent-cyan/10 rounded-lg"
           animate={{
@@ -63,7 +76,6 @@ export default function Hero() {
           }}
           transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
         />
-        {/* Shape 3: Blurred Triangle Concept */}
         <motion.div
           className="absolute top-[30%] right-[15%] w-0 h-0 border-l-[30px] border-l-transparent border-r-[30px] border-r-transparent border-b-[50px] border-b-primary-blue/5"
           animate={{
@@ -72,7 +84,6 @@ export default function Hero() {
           }}
           transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
         />
-        {/* Shape 4: Subtle Circle */}
         <motion.div
           className="absolute bottom-[15%] right-[20%] w-24 h-24 rounded-full border border-white/5"
           animate={{
@@ -110,7 +121,7 @@ export default function Hero() {
           className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6"
         >
           <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
-          <span className="text-xs font-semibold uppercase tracking-wider text-accent-cyan">Available for Opportunities</span>
+          <span className="text-xs font-semibold uppercase tracking-wider text-accent-cyan">Available for Frontend Internship</span>
         </motion.div>
 
         {/* Hello & Name */}
@@ -137,7 +148,7 @@ export default function Hero() {
           {heroData.subtitle}
         </motion.p>
 
-        {/* Call to Actions (CTAs) */}
+        {/* Call to Actions */}
         <motion.div 
           variants={itemVariants}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
@@ -145,20 +156,19 @@ export default function Hero() {
           {/* View Projects */}
           <button
             onClick={handleScrollToProjects}
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-primary-blue to-accent-cyan text-white text-sm font-semibold hover:shadow-lg hover:shadow-primary-blue/30 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 active:scale-95 cursor-none"
+            className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-primary-blue to-accent-cyan text-white text-sm font-semibold hover:shadow-lg hover:shadow-primary-blue/30 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue cursor-pointer"
           >
             <span>View Projects</span>
             <HiOutlineArrowRight size={16} />
           </button>
 
-          {/* Download CV */}
-          <a
-            href="#"
-            download
-            className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 hover:border-white/20 text-white text-sm font-semibold transition-all duration-300 hover:bg-white/5 flex items-center justify-center cursor-none"
+          {/* Contact Me CTA */}
+          <button
+            onClick={handleScrollToContact}
+            className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 hover:border-white/20 text-white text-sm font-semibold transition-all duration-300 hover:bg-white/5 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue cursor-pointer"
           >
-            Download CV
-          </a>
+            Get in Touch
+          </button>
         </motion.div>
 
         {/* Social Icons */}
@@ -171,7 +181,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"
-            className="w-12 h-12 rounded-full border border-white/5 hover:border-white/20 bg-white/[0.02] flex items-center justify-center text-text-slate hover:text-white transition-all hover:scale-110 cursor-none"
+            className="w-12 h-12 rounded-full border border-white/5 hover:border-white/20 bg-white/[0.02] flex items-center justify-center text-text-slate hover:text-white transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue"
           >
             <FaGithub size={20} />
           </a>
@@ -180,7 +190,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn Profile"
-            className="w-12 h-12 rounded-full border border-white/5 hover:border-white/20 bg-white/[0.02] flex items-center justify-center text-text-slate hover:text-white transition-all hover:scale-110 cursor-none"
+            className="w-12 h-12 rounded-full border border-white/5 hover:border-white/20 bg-white/[0.02] flex items-center justify-center text-text-slate hover:text-white transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue"
           >
             <FaLinkedinIn size={20} />
           </a>
@@ -189,14 +199,14 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram Profile"
-            className="w-12 h-12 rounded-full border border-white/5 hover:border-white/20 bg-white/[0.02] flex items-center justify-center text-text-slate hover:text-white transition-all hover:scale-110 cursor-none"
+            className="w-12 h-12 rounded-full border border-white/5 hover:border-white/20 bg-white/[0.02] flex items-center justify-center text-text-slate hover:text-white transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue"
           >
             <FaInstagram size={20} />
           </a>
         </motion.div>
       </motion.div>
 
-      {/* Background radial soft light to give deepness */}
+      {/* Background Soft Glow Light */}
       <div 
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-[30%] bg-gradient-to-t from-primary-blue/10 to-transparent blur-[120px] pointer-events-none" 
         aria-hidden="true"

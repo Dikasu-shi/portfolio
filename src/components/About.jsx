@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { aboutData } from '../data/portfolioData';
-import { FiCheckCircle } from 'react-icons/fi';
+import { FiCheckCircle, FiLayout, FiSmartphone, FiFigma } from 'react-icons/fi';
 
 const revealVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -29,10 +29,10 @@ export default function About() {
         <div className="w-16 h-1 bg-gradient-to-r from-primary-blue to-accent-cyan mx-auto mt-4 rounded-full" />
       </motion.div>
 
-      {/* Bento Grid Layout */}
+      {/* Balanced Bento Grid Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         
-        {/* Bento Box 1: Large Bio Description (Spans 2 cols on lg) */}
+        {/* Bento Box 1: Introduction Bio (Spans 2 cols on lg) */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -42,17 +42,18 @@ export default function About() {
         >
           <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary-blue to-transparent" />
           <div>
-            <span className="text-xs font-bold text-primary-blue uppercase tracking-widest block mb-4">Philosophy</span>
+            <span className="text-xs font-bold text-primary-blue uppercase tracking-widest block mb-4">Focus & Mindset</span>
             <h3 className="text-2xl sm:text-3xl font-heading font-black text-white mb-6 leading-tight">
               Designing Interfaces, <br className="hidden sm:inline" />
-              Coding Experiences.
+              Building Experiences.
             </h3>
             <p className="text-text-slate leading-relaxed font-light text-base sm:text-lg mb-6">
               {aboutData.introduction}
             </p>
           </div>
-          <div className="text-xs text-text-slate/60 italic mt-4 border-t border-white/5 pt-4">
-            - Dika Ahmad Imamul Mutakin, Frontend Developer
+          <div className="text-xs text-text-slate/70 border-t border-white/5 pt-4 flex items-center justify-between">
+            <span>Dika Ahmad Imamul Mutakin</span>
+            <span className="text-accent-cyan font-medium">Aspiring Frontend Developer</span>
           </div>
         </motion.div>
 
@@ -69,7 +70,7 @@ export default function About() {
             <span className="text-xs font-bold text-accent-cyan uppercase tracking-widest block mb-3">Workflow</span>
             <h3 className="text-lg font-heading font-bold text-white mb-2">Figma to React</h3>
             <p className="text-xs text-text-slate font-light leading-relaxed">
-              Obsessed with transforming designs into clean, semantic components. Maintaining spacing, typography integrity, and responsive grid layouts.
+              Focusing on transforming visual Figma designs into clean, semantic, and reusable React components with precise spacing and responsive layouts.
             </p>
           </div>
 
@@ -85,7 +86,7 @@ export default function About() {
                 <circle cx="8" cy="19.5" r="4" fill="#0ACF83"/>
                 <path d="M19.5 19.5C19.5 17.29 17.71 15.5 15.5 15.5C13.29 15.5 11.5 17.29 11.5 19.5C11.5 21.71 13.29 23.5 15.5 23.5C17.71 23.5 19.5 21.71 19.5 19.5Z" fill="#1ABC9C"/>
               </g>
-              {/* Animated Arrow */}
+              {/* Arrow */}
               <path d="M60 25H90M90 25L82 17M90 25L82 33" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               {/* React Brackets Code */}
               <g transform="translate(110, 10)">
@@ -96,7 +97,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Bento Box 3: Focus & Steps (Spans 1 col on lg) */}
+        {/* Bento Box 3: Core Focus & Learning Stack (Spans 1 col on lg) */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -106,68 +107,78 @@ export default function About() {
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-blue to-transparent" />
           <div>
-            <span className="text-xs font-bold text-primary-blue uppercase tracking-widest block mb-3">Current Path</span>
-            <h3 className="text-lg font-heading font-bold text-white mb-4">Core Focus</h3>
+            <span className="text-xs font-bold text-primary-blue uppercase tracking-widest block mb-3">Continuous Learning</span>
+            <h3 className="text-lg font-heading font-bold text-white mb-4">Core Stack</h3>
             <p className="text-xs text-text-slate font-light leading-relaxed mb-6">
               {aboutData.learningJourney}
             </p>
           </div>
 
-          {/* Stepper focus timeline widget */}
+          {/* Stepper focus checklist widget */}
           <div className="space-y-3 bg-white/[0.01] p-4 rounded-2xl border border-white/5">
             <div className="flex items-center space-x-2 text-xs font-medium text-white">
-              <FiCheckCircle className="text-accent-cyan" />
-              <span>React Architectures</span>
+              <FiCheckCircle className="text-accent-cyan shrink-0" />
+              <span>React & Component Logic</span>
             </div>
             <div className="flex items-center space-x-2 text-xs font-medium text-white">
-              <FiCheckCircle className="text-accent-cyan" />
-              <span>Tailwind Custom Design</span>
+              <FiCheckCircle className="text-accent-cyan shrink-0" />
+              <span>Tailwind CSS Modern Styling</span>
             </div>
             <div className="flex items-center space-x-2 text-xs font-medium text-white">
-              <FiCheckCircle className="text-accent-cyan" />
-              <span>JavaScript ES6+ Logic</span>
+              <FiCheckCircle className="text-accent-cyan shrink-0" />
+              <span>JavaScript (ES6+) Fundamentals</span>
             </div>
-            <div className="flex items-center space-x-2 text-xs font-medium text-white/50">
-              <div className="w-3 h-3 rounded-full border border-white/20 animate-pulse-slow" />
-              <span>Responsive Web Optimization</span>
+            <div className="flex items-center space-x-2 text-xs font-medium text-white">
+              <FiCheckCircle className="text-accent-cyan shrink-0" />
+              <span>Responsive Web Layouts</span>
             </div>
           </div>
         </motion.div>
 
-        {/* Bento Box 4: Timeline (Spans 2 cols on lg) */}
+        {/* Bento Box 4: Core Principles (Spans 2 cols on lg) */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={revealVariants}
-          className="lg:col-span-2 glass-panel p-8 sm:p-10 rounded-3xl relative overflow-hidden group hover:border-white/10 transition-colors duration-300"
+          className="lg:col-span-2 glass-panel p-8 sm:p-10 rounded-3xl relative overflow-hidden group hover:border-white/10 transition-colors duration-300 flex flex-col justify-between"
         >
           <div className="absolute top-0 left-0 w-2.5 h-full bg-gradient-to-b from-accent-cyan to-transparent" />
-          <span className="text-xs font-bold text-accent-cyan uppercase tracking-widest block mb-6">Milestones</span>
-          <h3 className="text-xl font-heading font-bold text-white mb-8">Learning & Timeline</h3>
-          
-          <div className="relative pl-6 border-l border-white/15 space-y-8">
-            {aboutData.timeline.map((item, index) => (
-              <div 
-                key={index}
-                className="relative"
-              >
-                {/* Node */}
-                <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-accent-cyan border-4 border-bg-dark shadow-[0_0_10px_rgba(6,182,212,0.4)]" />
-                
-                {/* Date */}
-                <span className="text-[10px] sm:text-xs font-bold text-accent-cyan tracking-wider uppercase bg-white/5 border border-white/10 px-2 py-0.5 rounded">
-                  {item.year}
-                </span>
-
-                {/* Info */}
-                <div className="mt-3">
-                  <h4 className="text-base sm:text-lg font-heading font-bold text-white">{item.title}</h4>
-                  <p className="text-xs sm:text-sm text-white/70 font-semibold">{item.institution}</p>
-                  <p className="text-xs sm:text-sm text-text-slate mt-1.5 font-light leading-relaxed">{item.description}</p>
+          <div>
+            <span className="text-xs font-bold text-accent-cyan uppercase tracking-widest block mb-4">Principles</span>
+            <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-6">Frontend Approach</h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+                <div className="w-8 h-8 rounded-xl bg-primary-blue/10 flex items-center justify-center text-primary-blue">
+                  <FiLayout size={16} />
                 </div>
+                <h4 className="text-sm font-heading font-bold text-white">Clean Component Design</h4>
+                <p className="text-xs text-text-slate font-light leading-relaxed">
+                  Modular, reusable React components with clear state flow and semantic markup.
+                </p>
               </div>
-            ))}
+
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+                <div className="w-8 h-8 rounded-xl bg-accent-cyan/10 flex items-center justify-center text-accent-cyan">
+                  <FiSmartphone size={16} />
+                </div>
+                <h4 className="text-sm font-heading font-bold text-white">Responsive & Mobile-First</h4>
+                <p className="text-xs text-text-slate font-light leading-relaxed">
+                  Fluid layouts and intuitive touch targets crafted for all screen viewports.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+                <div className="w-8 h-8 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
+                  <FiFigma size={16} />
+                </div>
+                <h4 className="text-sm font-heading font-bold text-white">Design Translation</h4>
+                <p className="text-xs text-text-slate font-light leading-relaxed">
+                  Accurate visual hierarchy, typography, and spacing from Figma to browser.
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
 
