@@ -1,51 +1,38 @@
 # Dika Ahmad — Personal Portfolio
 
-Personal portfolio website built with React and Vite to showcase selected projects, technical skills, certificates, and frontend development experience.
+Personal portfolio website built with React and Vite.
 
-## Overview
+## About
 
-This portfolio was created as a personal space to document my development journey and present projects I have worked on while studying and practicing frontend development.
+This project contains my personal portfolio, including information about me, skills, certificates, and selected projects.
 
-## Features
+## Projects
 
-- Responsive design for desktop and mobile
-- Dark-themed interface
-- Project showcase
-- Skills and technology overview
-- Certificate section
-- Contact section
-- Smooth animations and interactive UI elements
+### CineVerse
+A frontend movie discovery website for searching and exploring movie information.
+
+### MotoStock
+A web project related to motorcycle spare parts.
+
+### TiketKonser
+A concert ticketing frontend project.
 
 ## Tech Stack
 
 - React
 - Vite
+- JavaScript
+- CSS
 - Tailwind CSS
 - Framer Motion
-- React Icons
 
-## Projects
+## Run Locally
 
-### CineVerse
-Movie discovery and search web application.
-
-### MotoStock
-Motorcycle spare parts inventory and catalog platform.
-
-### TiketKonser
-Concert ticket booking platform with interactive seat selection.
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm
-
-### Installation
+Make sure Node.js and npm are installed.
 
 ```bash
 git clone https://github.com/Dikasu-shi/portfolio.git
 cd portfolio
 npm install
 npm run dev
+```
