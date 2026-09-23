@@ -26,6 +26,9 @@ This portfolio was created as a personal space to document my development journe
 
 ## Projects
 
+### CineVerse
+Movie discovery and search web application.
+
 ### MotoStock
 Motorcycle spare parts inventory and catalog platform.
 

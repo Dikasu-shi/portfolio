@@ -51,6 +51,23 @@ export const skillsData = {
 
 export const projectsData = [
   {
+    id: "project-cineverse",
+    title: "CineVerse",
+    tagline: "Movie Discovery & Exploration Platform",
+    description: "A responsive movie discovery web application for exploring trending and popular films, searching titles with genre and year filters, viewing detailed cast and synopses, and managing personal watchlists.",
+    technologies: ["React", "Tailwind CSS", "React Router", "Lucide React", "TMDB API"],
+    features: [
+      "Dynamic Hero showcase with curated trending and top-rated feeds",
+      "Instant search with genre, release year, and sorting filters",
+      "Comprehensive movie detail view with cast and recommendations",
+      "Personal Watchlist management with localStorage persistence"
+    ],
+    imagePath: "/assets/project-cineverse.jpg",
+    githubUrl: "https://github.com/Dikasu-shi/Cineverse",
+    demoUrl: "https://cineverse-dikasu.vercel.app/",
+    responsiveness: "Mobile, Tablet & Desktop Optimized"
+  },
+  {
     id: "project-motostock",
     title: "MotoStock",
     tagline: "Spare Parts Catalog & Inventory Interface",

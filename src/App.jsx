@@ -1,4 +1,3 @@
-import CustomCursor from './components/CustomCursor';
 import ScrollProgressBar from './components/ScrollProgressBar';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -12,9 +11,6 @@ import GlowBackground from './components/UI/GlowBackground';
 function App() {
   return (
     <div className="relative min-h-screen bg-bg-dark text-text-light selection:bg-primary-blue/30 selection:text-white antialiased font-sans">
-      {/* Interactive cursor effect */}
-      <CustomCursor />
-      
       {/* Scroll indicator */}
       <ScrollProgressBar />
       

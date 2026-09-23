@@ -42,16 +42,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* Hide default cursor on desktop devices to allow custom cursor */
-@media (min-width: 1024px) {
-  body {
-    cursor: none;
-  }
-  a, button, input, textarea, select, [role="button"] {
-    cursor: none;
-  }
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
