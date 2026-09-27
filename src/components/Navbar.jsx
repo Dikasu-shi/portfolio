@@ -1,73 +1,35 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiMenu, HiX } from 'react-icons/hi';
 
 const navLinks = [
-  { label: 'Home', id: 'home' },
-  { label: 'About', id: 'about' },
-  { label: 'Skills', id: 'skills' },
-  { label: 'Projects', id: 'projects' },
-  { label: 'Contact', id: 'contact' },
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Tech Stack', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Intersection Observer to track active section
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-40% 0px -50% 0px',
-      threshold: 0,
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    navLinks.forEach((link) => {
-      const el = document.getElementById(link.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      navLinks.forEach((link) => {
-        const el = document.getElementById(link.id);
-        if (el) observer.unobserve(el);
-      });
-    };
-  }, []);
-
-  const handleLinkClick = (id) => {
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+    const target = document.querySelector(href);
+    if (target) {
+      const topOffset = 70;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
 
       window.scrollTo({
         top: offsetPosition,
@@ -77,90 +39,65 @@ export default function Navbar() {
   };
 
   return (
-    <>
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled 
-            ? 'glass-navbar py-4' 
-            : 'bg-transparent py-6 border-b border-transparent'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          <button
-            onClick={() => handleLinkClick('home')}
-            className="text-xl font-heading font-black tracking-tight text-white group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded-lg px-1"
-            aria-label="Back to top"
-          >
-            <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent group-hover:text-white transition-colors">
-              Dika Ahmad
-            </span>
-          </button>
+    <header
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
+        isScrolled
+          ? 'bg-[#090d16]/90 backdrop-blur-md border-b border-white/[0.08] py-3.5'
+          : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
+        {/* Brand Name */}
+        <a
+          href="#home"
+          onClick={(e) => handleNavClick(e, '#home')}
+          className="text-base font-semibold text-white tracking-tight hover:text-blue-400 transition-colors"
+        >
+          Dika Ahmad
+        </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1" aria-label="Main Navigation">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-6 text-sm" aria-label="Main Navigation">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors focus:outline-none"
+          aria-label={mobileMenuOpen ? 'Tutup menu' : 'Buka menu'}
+          aria-expanded={mobileMenuOpen}
+        >
+          {mobileMenuOpen ? <HiX size={22} /> : <HiMenu size={22} />}
+        </button>
+      </div>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-[#0f172a] border-b border-white/10 px-6 py-4 transition-all">
+          <nav className="flex flex-col space-y-3" aria-label="Mobile Navigation">
             {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleLinkClick(link.id)}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue ${
-                  activeSection === link.id ? 'text-white' : 'text-text-slate hover:text-white'
-                }`}
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-slate-300 hover:text-white py-1.5 text-sm transition-colors"
               >
-                {activeSection === link.id && (
-                  <motion.span
-                    layoutId="activeNavIndicator"
-                    className="absolute inset-0 bg-white/5 rounded-full border border-white/5"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
                 {link.label}
-              </button>
+              </a>
             ))}
           </nav>
-
-          {/* Mobile Hamburger Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-text-slate hover:text-white hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue"
-            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
-          </button>
         </div>
-      </motion.header>
-
-      {/* Mobile Drawer Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-[73px] z-30 md:hidden glass-panel flex flex-col items-center justify-start py-12 px-6"
-          >
-            <nav className="flex flex-col space-y-6 text-center w-full max-w-sm" aria-label="Mobile Navigation">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => handleLinkClick(link.id)}
-                  className={`w-full py-4 text-lg font-heading font-medium border-b border-white/[0.04] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded-lg ${
-                    activeSection === link.id 
-                      ? 'text-primary-blue font-semibold' 
-                      : 'text-text-slate hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                </button>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+      )}
+    </header>
   );
 }

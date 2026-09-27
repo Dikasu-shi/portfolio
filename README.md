@@ -4,27 +4,34 @@ Personal portfolio website built with React and Vite.
 
 ## About
 
-This project contains my personal portfolio, including information about me, skills, certificates, and selected projects.
+This project contains my personal portfolio, including information about me, skills, and selected projects.
 
 ## Projects
 
-### CineVerse
-A frontend movie discovery website for searching and exploring movie information.
+### 1. MotoStock
 
-### MotoStock
-A web project related to motorcycle spare parts.
+Website untuk pengelolaan dan penjualan spare part sepeda motor dengan role Admin, Kasir, dan Customer.
 
-### TiketKonser
-A concert ticketing frontend project.
+- Live: https://motostock-dikasu.up.railway.app/
+
+### 2. TiketKonser
+
+Website frontend untuk melihat event konser, memilih tiket, dan melakukan proses pemesanan hingga checkout.
+
+- Live: https://tiketkonser-dika.vercel.app/
+
+### 3. Cineverse
+
+Website movie discovery untuk mencari dan melihat informasi film, rekomendasi, dan menyimpan watchlist.
+
+- Live: https://cineverse-dikasu.vercel.app/
 
 ## Tech Stack
 
 - React
 - Vite
 - JavaScript
-- CSS
 - Tailwind CSS
-- Framer Motion
 
 ## Run Locally
 
@@ -32,7 +39,9 @@ Make sure Node.js and npm are installed.
 
 ```bash
 git clone https://github.com/Dikasu-shi/portfolio.git
+
 cd portfolio
+
 npm install
+
 npm run dev
-```
